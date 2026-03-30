@@ -1,0 +1,28 @@
+---
+import '@styles/global.css';
+import { SITE } from '@data/constants';
+
+const{
+    title = SITE.title
+} = Astro.props;
+
+interface Props{
+    title?: string;
+    meta?: string;
+    structuredData?:object;
+    lang?: string;
+    customDescription?:string;
+    customTitle?: string | null;
+}
+
+
+---
+<html >
+    <head>
+
+        <title>{title}</title>
+        
+    </head>
+    
+
+</html>
