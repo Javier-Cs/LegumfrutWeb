@@ -1,6 +1,7 @@
 ---
 import '@styles/global.css';
 import { SITE } from '@data/constants';
+import Navbar from '@components/secciones/navbar&footer/Navbar.astro';
 
 const{
     title = SITE.title
@@ -21,8 +22,28 @@ interface Props{
     <head>
 
         <title>{title}</title>
-        
+        <script is:inline>
+            if(
+                localStorage.getItem('theme') === 'dark' ||
+                (!('theme' in localStorage) && 
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ){
+                document.documentElement.classList.add('dark');
+            }else{
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
     </head>
+    <body class="flex min-h-screen flex-col bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
+       
+        <div>
+        <Navbar/>
+        <main>
+                <slot />
+        </main>
+       </div>
+
+    </body>
     
 
 </html>
