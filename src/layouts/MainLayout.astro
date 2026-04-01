@@ -4,7 +4,12 @@ import { SITE } from '@data/constants';
 import Navbar from '@components/secciones/navbar&footer/Navbar.astro';
 
 const{
-    title = SITE.title
+    title = SITE.title,
+    meta,
+    structuredData,
+    lang = 'en?',
+    customDescription = null,
+    customOgTitle = null,
 } = Astro.props;
 
 interface Props{
@@ -13,7 +18,7 @@ interface Props{
     structuredData?:object;
     lang?: string;
     customDescription?:string;
-    customTitle?: string | null;
+    customOgTitle?: string | null;
 }
 
 
@@ -36,10 +41,10 @@ interface Props{
     </head>
     <body class="flex min-h-screen flex-col bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
        
-        <div>
+        <div class="mx-auto w-full max-w-(--breakpoint) grow px-4 sm:px-6 lg:px-8">
         <Navbar/>
         <main>
-                <slot />
+            <slot />
         </main>
        </div>
 
