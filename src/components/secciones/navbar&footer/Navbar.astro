@@ -1,7 +1,21 @@
 ---
+import enStrings from '@en/navigationen';
+import esStrings from '@es/navigation.ts';
 
+//secciones de idiomas 
+const strings = Astro.currentLocale === 'en' ? enStrings : esStrings;
+const homeUrl = Astro.currentLocale === 'en' ? '/en' : '/';
 ---
 
-<header>
+<header
+class="sticky"
+>
+    <nav>
+        <div>
+            <a href="">
+
+            </a>
+        </div>
+    </nav>
     
 </header>
